@@ -1,6 +1,6 @@
-const express = require('express');
-const cors = require('cors');
-const products = require('../data/products');
+import express from 'express';
+import cors from 'cors';
+import products from '../data/products.js';
 
 const app = express();
 const PORT = 5000;
@@ -21,5 +21,5 @@ app.get('/api/products/:id', (req, res) => {
 })
 
 app.listen(PORT, () => {
-  console.log('listening on port '+PORT);
+  console.log(`server running on port ${PORT}`);
 });
