@@ -1,11 +1,20 @@
 import React from 'react';
+import axios from 'axios';
 import { Row, Col, Button, Image, ListGroup, Card } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import Rating from '../components/Rating';
-import products from '../products';
 
 const ProductScreen = ({ match }) => {
-  const product = products.find(p => p._id === match.params.id);
+  const [product, setProduct] = React.useState({});
+
+  React.useEffect(() => {
+    const fetchProduct = async () => {
+      const {status, data} = await axios.get('http://localhost:5000/api/products/'+match.params.id);
+      if(status === 200) setProduct(data);
+      // later handle error case
+    }
+    fetchProduct();
+  }, []);
 
   return (
     <React.Fragment>
