@@ -1,10 +1,8 @@
 import mongoose from 'mongoose';
 
-const MONGO_URI = 'mongodb://127.0.0.1:27017/ecommerce-clone';
-
 const connectDB = async () => {
   try {
-    const connection = await mongoose.connect(MONGO_URI, {
+    const connection = await mongoose.connect(process.env.DB_URI, {
       useUnifiedTopology: true,
       useNewUrlParser: true,
     });

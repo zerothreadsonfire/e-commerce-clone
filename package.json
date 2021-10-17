@@ -3,8 +3,12 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "server": "nodemon backend/src/server",
+    "client": "npm start --prefix frontend",
+    "data:import": "node backend/src/seeder",
+    "data:destroy": "node backend/src/seeder -d"
   },
   "repository": {
     "type": "git",
@@ -18,7 +22,11 @@
   },
   "homepage": "https://github.com/zerothreadsonfire/e-commerce-clone#readme",
   "dependencies": {
-    "express": "^4.17.1"
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "mongoose": "^6.0.11"
   },
   "devDependencies": {
     "nodemon": "^2.0.13"
