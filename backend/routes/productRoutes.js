@@ -14,12 +14,19 @@ router.get('/', async (req, res) => {
 // @desc    Fetch single product
 // @route   GET /api/products/:id
 // @access  Public  
-router.get('/:id', async (req, res) => {
-  const product = await Product.findById(req.params.id);
-  if(product) res.json(product);
-  else res.status(404).json({
-    message: "Product not found"
-  })
+router.get('/:id', async (req, res, next) => {
+  try {
+    const product = await Product.findById(req.params.id);
+    if (product) {
+      res.json(product);
+    } else {
+      res.status(404);
+      throw new Error("Product not found!");
+    }
+  } catch(error) {
+    res.status(404);
+    next("Product not found");
+  }
 })
 
 export default router;
