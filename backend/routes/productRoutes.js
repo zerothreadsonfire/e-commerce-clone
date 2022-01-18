@@ -21,11 +21,12 @@ router.get('/:id', async (req, res, next) => {
       res.json(product);
     } else {
       res.status(404);
-      throw new Error("Product not found!");
+      throw new Error("Product not found");
     }
-  } catch(error) {
+  } catch(err) {
     res.status(404);
-    next("Product not found");
+    const error = new Error("Product not found!");
+    next(error);
   }
 })
 
