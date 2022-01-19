@@ -21,7 +21,7 @@ const ProductScreen = ({ match }) => {
   return (
     <React.Fragment>
       <Button as={Link} to="/" className="btn btn-light my-3">Go Back</Button>
-      { loading ? <Loader /> : error ? <Message variant="danger">{error}</Message> : product && (
+      { loading ? <Loader /> : error ? <Message variant="danger">{error}</Message> : (
         <Row>
         <Col md={6}>
           <Image src={product.image} alt={product.name} fluid />
