@@ -6,7 +6,7 @@ const router = express.Router();
 // @desc    Fetch all products
 // @route   GET /api/products
 // @access  Public  
-router.get('/', async (req, res) => {
+router.get('/', async (req, res, next) => {
   const products = await Product.find({});
   res.json(products);
 })
