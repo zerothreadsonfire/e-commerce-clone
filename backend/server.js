@@ -1,10 +1,10 @@
 import express from 'express';
 import dotenv from 'dotenv';
 import cors from 'cors';
-import products from '../data/products.js';
-import connectDB from '../config/db.js';
-import productRoutes from '../routes/productRoutes.js';
-import { notFound, errorHandler } from '../middleware/errorMiddleware.js';
+import products from './data/products.js';
+import connectDB from './config/db.js';
+import productRoutes from './routes/productRoutes.js';
+import { notFound, errorHandler } from './middleware/errorMiddleware.js';
 
 const app = express();
 const PORT = process.env.PORT || 5000;
