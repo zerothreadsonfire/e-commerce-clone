@@ -2,8 +2,6 @@ import React from 'react';
 
 const Rating = ({ value, text, color }) => {
 
-  const maxRating = 5;
-
   return (
     <div className="product--rating">
       <i className={value >= 1 ? 'fas fa-star' : value >= 0.5 ? 'fas fa-star-half-alt' : 'far fa-star'} style={{color}}/>
