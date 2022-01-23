@@ -10,8 +10,7 @@ const protect = async (req, res, next) => {
     const decoded = jwt.verify(token, process.env.JWT_SECRET);
     req.user = await User.findById(decoded.id).select("-password");
   } catch(e) {
-    console.log("error here");
-    console.log(e);
+    return next(new Error("Verification Failed."))
   }
 
   next();
