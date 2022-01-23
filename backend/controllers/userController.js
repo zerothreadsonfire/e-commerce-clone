@@ -32,6 +32,7 @@ const registerUser = async (req, res, next) => {
       return next(new Error("Invalid User Data"))
     }
   } catch(e) {
+    res.status(400);
     return next(new Error("Please Enter all the Fields."))
   }
 }
