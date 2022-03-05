@@ -5,11 +5,11 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "server": "nodemon backend/server",
+    "server": "nodemon server",
     "client": "npm start --prefix frontend",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
-    "data:import": "node backend/src/seeder",
-    "data:destroy": "node backend/src/seeder -d"
+    "data:import": "node src/seeder",
+    "data:destroy": "node src/seeder -d"
   },
   "repository": {
     "type": "git",
