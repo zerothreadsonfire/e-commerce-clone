@@ -78,8 +78,24 @@ const updateOrderToPaid = async (req, res, next) => {
   }
 }
 
+// @desc    Get Logged In User Orders
+// @route   GET /api/orders/myorders
+// @access  Private 
+const getMyOrders = async (req, res, next) => {
+  try {
+    const orders = await Order.find({ user: req.user._id })
+    res.json(orders);
+
+  } catch(err) {
+    res.status(404);
+    const error = new Error("Could Not Find User By ID");
+    next(error);
+  }
+}
+
 export {
   addOrderItems,
   getOrderById,
-  updateOrderToPaid
+  updateOrderToPaid,
+  getMyOrders,
 }
