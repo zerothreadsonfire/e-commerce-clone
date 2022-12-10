@@ -93,9 +93,24 @@ const getMyOrders = async (req, res, next) => {
   }
 }
 
+// @desc    Get All Orders
+// @route   GET /api/orders
+// @access  Private/Admin
+const getOrders = async (req, res, next) => {
+  try {
+    const orders = await Order.find({}).populate('user', 'id name');
+    res.json(orders);
+  } catch(err) {
+    res.status(404);
+    const error = new Error("Could Not Fetch Orders");
+    next(error);
+  }
+}
+
 export {
   addOrderItems,
   getOrderById,
   updateOrderToPaid,
   getMyOrders,
+  getOrders,
 }
