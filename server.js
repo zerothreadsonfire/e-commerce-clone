@@ -1,6 +1,7 @@
 import express from 'express';
 import dotenv from 'dotenv';
 import path from "path";
+import morgan from 'morgan';
 import connectDB from './config/db.js';
 import productRoutes from './routes/productRoutes.js';
 import userRoutes from "./routes/userRoutes.js";
@@ -14,6 +15,10 @@ const PORT = process.env.PORT || 5000;
 dotenv.config();
 
 connectDB();
+
+if(process.env.NODE_ENV === 'Development') {
+  app.use(morgan('dev'));
+}
 
 app.use(express.json());
 
