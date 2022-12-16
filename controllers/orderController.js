@@ -1,4 +1,4 @@
-import Order from '../models/OrderModel.js';
+import Order from '../models/orderModel.js';
 
 // @desc    Create New Order
 // @route   POST /api/orders
